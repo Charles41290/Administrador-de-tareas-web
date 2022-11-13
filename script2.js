@@ -1,6 +1,6 @@
 import checkComplete from "./scripts-components/checkComplete.js";
 import deleteBtn from "./scripts-components/deleteBtn.js";
-//( () => {
+( () => {
     //  seleccionamos el boton 
     const btn = document.querySelector("[data-form-button]")
     // seleccionamos el cuadro de texto
@@ -71,6 +71,6 @@ import deleteBtn from "./scripts-components/deleteBtn.js";
 
     btn.addEventListener("click", createTask); // create Task no lleva parentesis ya que es una referencia a la funcion y no un llamado
 
-//}) ();
+}) ();
 
 
