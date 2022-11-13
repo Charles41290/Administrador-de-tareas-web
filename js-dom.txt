@@ -88,6 +88,9 @@
   ya existente
 > const task = document.createElement("etiquetaHTML");
 
+- podemos eliminar nodos mediante el metodo .remove
+> task.remove()
+
 - podemos crear una clase para el objeto task
 > task.classList.add('nombreClase1', 'nombreClase2',...)
 
@@ -109,7 +112,7 @@
 > replaceChild (ele1,ele2) -> sustituye el nodo del el1 por el nodo del ele2
 > removeChild(ele)-> remueve un nodo del arbol 
 
-- IIFE Immediately invoked function 
+- IIFE Immediately Invoked function  Expresssion
   para evitar el acceso a las funciones definidas dentro del programa
   podemnos hacer uso del IIFE -> son funciones que se ejecutan tan pronto
   como se definen.
@@ -120,5 +123,14 @@
    } ) () // estos ultimso parentesis permiten que sea llamada inmediatamente
 
 
+- exportar modulos-> al final de cada modulo podemos importar este mediante
+> export default nombreModulo.js;
 
+- importar en el modulo donde se utilizara
+> import nombreModulo.js(tiene que coincidr con el de export) from
+							 "archivo-path"
+  dentro del html necesitamos definirle que el script en el cual estamos
+  usando los modulos es de type module
+<script type ="module" src="path"></script>
 
+!!!!ES NECESARIO TENER LA EXTENSION LIVE SERVER DE VS INSTALADA¡¡¡¡¡

@@ -1,21 +1,10 @@
-( () => {
-        //  seleccionamos el boton 
+import checkComplete from "./scripts-components/checkComplete.js";
+import deleteBtn from "./scripts-components/deleteBtn.js";
+//( () => {
+    //  seleccionamos el boton 
     const btn = document.querySelector("[data-form-button]")
     // seleccionamos el cuadro de texto
     const input = document.querySelector("[data-form-input]")
-
-    /* Añadimos evento click en el boton*/
-    // listener -> capta eventos (click, tecla pulsada, etc)
-
-    /*
-    btn.addEventListener("click", function(evento){
-        evento.preventDefault()
-        const input = document.querySelector("[data-form-input]");
-        console.log(input.value);
-    });
-    // al dar click se genera el objeto input, luego
-    // cargamos en pantalla la propiedad value 
-    */
 
     // Arrow funcition
     const createTask = (evento) => {
@@ -80,52 +69,8 @@
         input.value = "";
     }
 
-
-
     btn.addEventListener("click", createTask); // create Task no lleva parentesis ya que es una referencia a la funcion y no un llamado
 
-
-    // creamos una funcion que retorne un objeto con la etiqueta <i> y sus clases
-    const checkComplete = () => {
-        const i = document.createElement("i");
-        //i.classList.add("far fa-check-square icon")// arroja error ya que permite unicamente un solo nombre de clase por .add. Se puede solucionar de la siguiente manera
-        /*i.classList.add("far");i.classList.add("fa-check-square"); i.classList.add("icon");*/
-        
-        // otra forma mas compacta:
-        i.classList.add("far","fa-check-square","icon");
-
-        // añadimos el evento click a la etiqueta <span>
-        console.log(i) // para ver cuales eran las clases antes que occurra el evento click 
-        i.addEventListener("click", completeTask)
-        return i;
-    }
-
-    // creamos la funcion completeTask para marcar las tareas completas
-    const completeTask = (evento) =>{
-        elemento = evento.target; // .target es una referencia al objeto desde el cual se lanzo el evento
-                                    // si no se hace esa referencia no se sabe desde que objeto <i> ocurren el evento
-        elemento.classList.toggle("fas")
-        elemento.classList.toggle("completeIcon")
-        //eliminamos la clase anterior "far"
-        elemento.classList.toggle("far")
-        console.log(elemento) // para ver las clases añadidas/quitadas durante el evento
-    }
-
-    const deleteBtn = () => {
-        const i = document.createElement("i");
-        i.classList.add("fas","fa-trash-alt","trashIcon", "icon");
-        i.addEventListener("click",deleteTask)
-        return i;
-    }
-
-    const deleteTask = (evento) => {
-        /* buscamos eliminar el nodo padre, en este caso la etiqueta <li> llamada task */
-        const parent = evento.target.parentElement;
-        parent.remove()
-        
-    }
-
-
-}) ();
+//}) ();
 
 
