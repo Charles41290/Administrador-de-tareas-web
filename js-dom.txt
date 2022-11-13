@@ -1,0 +1,29 @@
+- al ir a la consola de la herramienta del desarrollador web podemos
+  escribir document y se genera un objeto document que contiene
+  todo el codigo html
+> document
+
+- podemos seleccionar una etiqueta del document
+> document.querySelector("nombreEtiqueta/.clase/id")
+
+- si quisieramos cambiar algun texto dentro de un etiqueta span
+  textContent es una propiedad de la etiqueta span
+> document.querySeñector("span").textContent = "TextoNuevo"
+
+-DOM (Document objet Model)
+ todo el codigo html se representa como un objeto tipo document
+ el cual reside en el objeto Window(pestañana del navegador)
+
+ Window -> Document -> <html> -> <head>  -> <title>
+                              -> <body>  -> <div>
+					 -> <ul>
+
+ lo anterior se conoce como arbol DOM
+
+- podemos utilizar otros metodos, ademas de query selector, para 
+  recorrer el arbol DOM
+> document.getElementById('id') -> selec ele por ID
+> document.getElementsByTagName ('tag') retorna un arreglo de ele por tag
+> document.querySelectorAll("selector") retorna todos los eles con el 
+   					mismo nombre
+
