@@ -26,4 +26,46 @@
 > document.getElementsByTagName ('tag') retorna un arreglo de ele por tag
 > document.querySelectorAll("selector") retorna todos los eles con el 
    					mismo nombre
+- data attributes -> permite deifinir datos personalizados asociados a
+  eles DOM
+>data-nameElegido -> dentro de la etiqueta html
 
+- para usar dentro del js script
+> document.querySelector("[data-name]")
+ 
+- agregar un listener(captador de eventos)
+> btn.addEventeListener('eventoDeseado',function())
+
+- para utilizar un listener, necesitamos:
+  evento/elemento sobre el que se realiza el evento/ lo que se ejecutara
+  cuando el evento suceda
+
+- capturar el contenido de un input con el la propied value
+> document.querySelector("[data-form-input]").value
+
+- asociar la captura del value cuando se pulse el boton
+> btn.addEventeListener('eventoDeseado',function(){
+	const input = document.querySelector("[data-form-input]").value;})
+
+- podemos cargar en pantalla lo que tiene input
+> btn.addEventeListener('eventoDeseado',function(){
+	const input = document.querySelector("[data-form-input]").value;
+	console.log(value.input);
+});
+
+- podemos definir un parametro que se la pase a la funcion cuando se 
+  ejecuta el evento ->
+> btn.addEventeListener('eventoDeseado',function(evento){
+	console.log(evento)
+});
+ 
+
+- en un formulario cada vez que apretamos el boton enviar se recarga la
+  pagina. Si queremos evitar esto usamos preventDefault.Al apretar un 
+  boton de un formulario la accion por defecto es refrescar la pagina.
+  para evitar esto podemos agregar un listener al evento click y añadir
+  dentro de la funcion preventDefault
+>> btn.addEventeListener('click',function(evento){
+	evento.preventDefautl()
+});
+ 
