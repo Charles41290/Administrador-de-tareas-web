@@ -66,6 +66,8 @@
   para evitar esto podemos agregar un listener al evento click y añadir
   dentro de la funcion preventDefault
 >> btn.addEventeListener('click',function(evento){
-	evento.preventDefautl()
+	evento.preventDefautl();
 });
  
+- Arrow functions / funciones lambda
+  (parametro) => {cuerpo de la funcion}
