@@ -8,7 +8,7 @@
 
 - si quisieramos cambiar algun texto dentro de un etiqueta span
   textContent es una propiedad de la etiqueta span
-> document.querySeñector("span").textContent = "TextoNuevo"
+> document.querySelector("span").textContent = "TextoNuevo"
 
 -DOM (Document objet Model)
  todo el codigo html se representa como un objeto tipo document
@@ -84,15 +84,40 @@
 > task = document.querySelector("[data-Name]")
 > task.innerHTML = contenido;
 
-- si necesitamos crear etiquetas en lugar de unicamente cambiar una
+- si necesitamos crear nodos(etiquetas) en lugar de unicamente cambiar una
   ya existente
 > const task = document.createElement("etiquetaHTML");
 
 - podemos crear una clase para el objeto task
-> task.classList.add('nombreClase')
+> task.classList.add('nombreClase1', 'nombreClase2',...)
+
+- podemos eliminar un clase del objeto tambien 
+> task.classList.remove('clase1', ...)
+
+- si necesitamos agregar/quitar dependiendo de si existe o no la clase
+>task.classList.toGgle('clase1', ...) // si clase 1 existe la elimina,
+				      	caso contrario la coloca
 
 - si necesitamos agregar las etiquetas ya creadas objetoContendor(etiquetaPadre)
 > objetoContenedor.appendChild(task)
+  appendChild se implementa la final del nodo, para colocar un nodo hijo
+  dentro del nodo padre
+
+- existen otros metodos para manipular nodos
+
+> insertBefore (padre,hijo) ->coloca un nodo antes del otro
+> replaceChild (ele1,ele2) -> sustituye el nodo del el1 por el nodo del ele2
+> removeChild(ele)-> remueve un nodo del arbol 
+
+- IIFE Immediately invoked function 
+  para evitar el acceso a las funciones definidas dentro del programa
+  podemnos hacer uso del IIFE -> son funciones que se ejecutan tan pronto
+  como se definen.
+  Se declaran como arrow functions dentro de parentesis
+
+> ( () =>{
+     Bloque de codigo
+   } ) () // estos ultimso parentesis permiten que sea llamada inmediatamente
 
 
 
