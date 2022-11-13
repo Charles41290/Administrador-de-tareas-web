@@ -71,3 +71,29 @@
  
 - Arrow functions / funciones lambda
   (parametro) => {cuerpo de la funcion}
+
+- con f-String(template-String) podemos combinar etiquetas html con 
+   variables javaScript
+>     const contenido =`  <div>
+                            <i class="far fa-check-square icon"></i>
+                            <span class="task">${valor}</span>
+                        </div>
+                        <i class="fas fa-trash-alt trashIcon icon"></i>`;
+
+- podemos asignar codigo html a un objeto que contega una etiqueta html
+> task = document.querySelector("[data-Name]")
+> task.innerHTML = contenido;
+
+- si necesitamos crear etiquetas en lugar de unicamente cambiar una
+  ya existente
+> const task = document.createElement("etiquetaHTML");
+
+- podemos crear una clase para el objeto task
+> task.classList.add('nombreClase')
+
+- si necesitamos agregar las etiquetas ya creadas objetoContendor(etiquetaPadre)
+> objetoContenedor.appendChild(task)
+
+
+
+
