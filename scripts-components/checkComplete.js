@@ -15,7 +15,7 @@ const checkComplete = () => {
 
 // creamos la funcion completeTask para marcar las tareas completas
 const completeTask = (evento) =>{
-    elemento = evento.target; // .target es una referencia al objeto desde el cual se lanzo el evento
+    let elemento = evento.target; // .target es una referencia al objeto desde el cual se lanzo el evento
                                 // si no se hace esa referencia no se sabe desde que objeto <i> ocurren el evento
     elemento.classList.toggle("fas")
     elemento.classList.toggle("completeIcon")
