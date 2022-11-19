@@ -134,3 +134,6 @@
 <script type ="module" src="path"></script>
 
 !!!!ES NECESARIO TENER LA EXTENSION LIVE SERVER DE VS INSTALADA¡¡¡¡¡
+Tambien puedo installar BrowerSync en caso de no utilizar VSC o la extension
+Live Server. Una vez instalado vamos al terminal y escribimos
+> browser-sync start -s -f . --directory
