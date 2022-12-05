@@ -122,7 +122,7 @@ export const createTask = ({valor, dateFormat, complete, id }) => { // del objet
                                     </li>
                                         */ 
     
-    task.appendChild(deleteBtn()); // agrego el boton(icono) a la etiqueta <li> 
+    task.appendChild(deleteBtn(id)); // agrego el boton(icono) a la etiqueta <li> 
                                         /* <li>
                                                 <div>
                                                     <i> </i>
