@@ -137,3 +137,49 @@
 Tambien puedo installar BrowerSync en caso de no utilizar VSC o la extension
 Live Server. Una vez instalado vamos al terminal y escribimos
 > browser-sync start -s -f . --directory
+
+- Fechas
+  La etiqueta input ya tinel el type ="datetime-local"
+  
+  Libreria Moment.js -> yendo a cdn js y buscando moment.js encontramos varias
+  url que contienen el codigo de interes 
+
+- almacenamiento web mdn
+  Existe 2 tipos de almacenamientos
+  - sessionStorage -> datos persisten mientras dure la sesion de la pag
+  - localStorage -> datos persisten incluso despues de haber cerrado el nav
+  Creo un objeto con los valores a almacenar
+> taskObj = {value, dateFormat}
+> sessionStorage.setItem("tasks", JSON.stringify(taskObj)) //recibe 2 parametros, 
+  key and value -> ambos tienen que ser del tipo string para esto utilizamos 
+  JSON.stringify(objet)-> convierte un jsObjet en string
+
+  Al ir a las herramientas del desarrollador, en la pestanaña Aplicacion encontramos, 
+  LocalStorage and SessionStorage, 
+  De forma similiar se puede utilizar localStorage
+> localStorage.setItem("tasks", JSON.stringify(taskObj))
+  !!Para ambos se almacena el útimo valor que contiene el objeto¡¡
+
+  Para esto podemos crear un array fuera de la funcion e ir almacenando en este 
+> taskList = []; // creada fuera de la funcion
+> taskList.push(taskObj);
+> localStorage('tasks', JSON.stringify(taskList))
+
+  La desventaja de esto es que cada vez que recargemos o incialicemos el programa, automati
+  se crea nuevamente una taskList perdiendo asi la info contenida
+  Para esto vamos a ver como recuperar la info contenida en el LocalStorage y utilizarla en 
+  el programa. Esto se hace con localStorage.getItem
+> const taskList = JSON.parse(localStorage.getItem("tasks")) || [] 
+  // tasks fue el nombre asignado en localStorage, si no existe tasks || [] asegura que
+  se devuelva un array vacio.
+  JSON.parse() convierte la string a un objeto 
+
+  Necesitamos hacer que la informacion que hayamos recuperado se muestre en nuestra pag
+  web
+  Podemos crear una funcion que lea lo que se encuentra en el localStorage cada vez que
+  se cargue la pagina -> esta funcion la llamamos desdel script principal
+> const readTasks = () => { const taskList= JSON.parse(localStorage.getItem("nombre"))}
+
+
+
+

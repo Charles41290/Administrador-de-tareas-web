@@ -7,21 +7,50 @@ import deleteBtn from "./scripts-components/deleteBtn.js";
     const input = document.querySelector("[data-form-input]");
     // seleccionamos la etiqueta input para la fecha
     
+    const addTask = (evento) => {
+        // seleccionamos la etiqueta <ul>.ETIQUETA PADRE
+        const list = document.querySelector("[data-list]");
+        const task = createTask(evento);
+        list.appendChild(task); // se añade la etique <li> a list (etiqueta <ul>)
+                                /* <ul>
+                                        <li>
+                                            <div>
+                                                <i> </i>
+                                                <span></span>
+                                            </div>
+                                            <span> dd/mm/yyyy </span>
+                                            <i></i>
+                                        </li>
+                                    </ul> */
+    }
+
+    const taskList  = [];
     
     // Arrow funcition
     const createTask = (evento) => {
         evento.preventDefault();
         const input = document.querySelector("[data-form-input]");
-        const valor = input.value;
+        const valor = input.value; // me devuelve el valor de la tarea ingresada en el input 
 
         //Fechas
         const calendar = document.querySelector("[data-form-date]");
         const date = calendar.value;
         const dateFormat = moment(date).format("DD/MM/YYYY")
 
-        // seleccionamos la etiqueta <ul>.ETIQUETA PADRE
-        const list = document.querySelector("[data-list]");  
+        console.log(typeof(valor), typeof(dateFormat));
         
+        // Almacenamiento de datos 
+        const taskObj = {
+            valor,
+            dateFormat
+        };
+
+        // agrego el taskObj al array taskList creado fuera de esta funcion 
+        taskList.push(taskObj);
+
+        //sessionStorage.setItem("tasks", JSON.stringify(taskObj));
+        localStorage.setItem("tasks", JSON.stringify(taskList));
+
         // necesitamos crear una nueva etiqueta <li> y agregarla a list. ETIQUETA HIJO
         const task = document.createElement("li"); 
         task.classList.add('card');// para que task no pierda el estilo definido en style necesitamos agregarle una clase
@@ -40,7 +69,7 @@ import deleteBtn from "./scripts-components/deleteBtn.js";
         //creamos un elemento tipo <span>
         const dateElement = document.createElement("span");
         dateElement.innerHTML = dateFormat; //dateFormat esta definido en linea 20 -> returns <span> dd/mm/yyy <span>
-        console.log(dateElement);
+        //console.log(dateElement);
 
 
         //agregamos titleTask a taskContent 
@@ -79,21 +108,12 @@ import deleteBtn from "./scripts-components/deleteBtn.js";
                                                 </li>
                                             */
         // agregamos la etiqueta creada al objeto lista(contenedor)
-        list.appendChild(task); // se añade la etique <li> a list (etiqueta <ul>)
-                                /* <ul>
-                                        <li>
-                                            <div>
-                                                <i> </i>
-                                                <span></span>
-                                            </div>
-                                            <span> dd/mm/yyyy </span>
-                                            <i></i>
-                                        </li>
-                                    </ul> */
+        
         input.value = "";
+        return task;
     }
 
-    btn.addEventListener("click", createTask); // create Task no lleva parentesis ya que es una referencia a la funcion y no un llamado
+    btn.addEventListener("click", addTask); // create Task no lleva parentesis ya que es una referencia a la funcion y no un llamado
 
 }) ();
 
